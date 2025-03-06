@@ -4,7 +4,10 @@
 
 ## Introduction
 
-In this lab, you will be using the `files_for_lab/mysql_dump.sql` database. Load it to Sequel Pro, and there you will find a `bank` database which we will use for the following exercise.
+In this lab, you will be using the `files_for_lab/lab1_bank.sqlite` database. Load it into DB browser for sqlite, and there you will find a `bank` database which we will use for the following exercise.
+
+Open the `lab1_bank.sqlite` database in DB Browser for SQLite by selecting **Open Database** and choosing the `lab1_bank.sqlite` file. Once it's open, you can start working on your lab in the **Execute SQL** section. Don't forget to save your code regularly.
+
 
 Here, we will practice selecting and projecting data. You can finish all questions with only those clauses:
 
@@ -77,7 +80,7 @@ What is the `loan_id` of the highest payment received in the `loan` table?
 Expected result:
 
 ```shell
-6312
+6415
 ```
 
 ### Query 6
@@ -273,44 +276,4 @@ Expected result:
 ```shell
 396	PRIJEM	1028138.6999740601
 396	VYDAJ	1485814.400024414
-```
-
-### Query 19
-
-From the previous output, translate the values for `type` to English, rename the column to `transaction_type`, round `total_amount` down to an integer
-
-Expected result:
-
-```shell
-396	INCOMING	1028138
-396	OUTGOING	1485814
-```
-
-### Query 20
-
-From the previous result, modify your query so that it returns only one row, with a column for incoming amount, outgoing amount and the difference.
-
-Expected result:
-
-```shell
-396	1028138	1485814	-457676
-```
-
-### Query 21
-
-Continuing with the previous example, rank the top 10 `account_id`s based on their difference.
-
-Expected result:
-
-```shell
-9707	869527
-3424	816372
-3260	803055
-2486	735219
-1801	725382
-4470	707243
-3674	703531
-9656	702786
-2227	696564
-6473	692580
 ```
