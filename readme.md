@@ -31,6 +31,8 @@ Get the `id` values of the first 5 clients from `district_id` with a value equal
 Expected result:
 
 ```shell
+SELECT client_id FROM client WHERE  district_id == 1 LIMIT 5
+
 2
 3
 22
@@ -45,6 +47,8 @@ In the `client` table, get an `id` value of the last client where the `district_
 Expected result:
 
 ```shell
+SELECT client_id FROM client WHERE  district_id == 72 ORDER BY  client_Id DESC LIMIT 1
+
 13576
 ```
 
@@ -55,6 +59,8 @@ Get the 3 lowest amounts in the `loan` table.
 Expected result:
 
 ```shell
+SELECT amount FROM loan  ORDER BY  amount ASC LIMIT 3
+
 4980
 5148
 7656
@@ -67,6 +73,8 @@ What are the possible values for `status`, ordered alphabetically in ascending o
 Expected result:
 
 ```shell
+SELECT status FROM loan GROUP BY status  ORDER BY  status 
+
 A
 B
 C
@@ -80,6 +88,8 @@ What is the `loan_id` of the highest payment received in the `loan` table?
 Expected result:
 
 ```shell
+SELECT loan_id FROM loan ORDER BY payments DESC LIMIT 1
+
 6415
 ```
 
@@ -90,6 +100,8 @@ What is the loan `amount` of the lowest 5 `account_id`s in the `loan` table? Sho
 Expected result:
 
 ```shell
+SELECT account_id as "#id", amount FROM loan ORDER BY account_id ASC LIMIT 5
+
 #id     amount
 2	    80952
 19	    30276
@@ -105,6 +117,8 @@ What are the `account_id`s with the lowest loan `amount` that have a loan `durat
 Expected result:
 
 ```shell
+SELECT account_id  FROM loan WHERE duration == 60 ORDER BY amount ASC LIMIT 5
+
 10954
 938
 10711
@@ -121,6 +135,8 @@ Note: There shouldn't be a table name `order`, since `order` is reserved from th
 Expected result:
 
 ```shell
+SELECT k_symbol  FROM "order" GROUP BY k_symbol
+
 LEASING
 POJISTNE
 SIPO
@@ -134,6 +150,8 @@ In the `order` table, what are the `order_id`s of the client with the `account_i
 Expected result:
 
 ```shell
+SELECT order_id  FROM "order"  WHERE account_id == 34
+
 29445
 29446
 29447
@@ -146,6 +164,8 @@ In the `order` table, which `account_id`s were responsible for orders between `o
 Expected result:
 
 ```shell
+SELECT account_id  FROM "order"  WHERE order_id >= 29540 AND order_id <= 29560 GROUP BY account_id
+
 88
 90
 96
@@ -159,6 +179,8 @@ In the `order` table, what are the individual amounts that were sent to (`accoun
 Expected result:
 
 ```shell
+SELECT amount  FROM "order"  WHERE account_to == 30067122
+
 5123
 ```
 
@@ -169,6 +191,8 @@ In the `trans` table, show the `trans_id`, `date`, `type` and `amount` of the 10
 Expected result:
 
 ```shell
+SELECT trans_id, date, type, amount  FROM trans  WHERE account_id == 793 ORDER BY date DESC LIMIT 10
+
 3556468	981231	PRIJEM	78.6
 233254	981216	VYDAJ	600
 233104	981212	VYDAJ	1212
@@ -188,6 +212,8 @@ In the `client` table, of all districts with a `district_id` lower than 10, how 
 Expected result:
 
 ```shell
+SELECT district_id, COUNT(*)  FROM client  WHERE district_id < 10 GROUP BY district_id
+
 1	663
 2	46
 3	63
@@ -206,6 +232,8 @@ In the `card` table, how many cards exist for each `type`? Rank the result start
 Expected result:
 
 ```shell
+SELECT type, COUNT(*)  FROM card  GROUP BY type ORDER BY COUNT(*) DESC
+
 classic	659
 junior	145
 gold	88
@@ -218,6 +246,8 @@ Using the `loan` table, print the top 10 `account_id`s based on the sum of all o
 Expected result:
 
 ```shell
+SELECT account_id, SUM(amount)  FROM loan GROUP BY account_id ORDER BY SUM(amount) DESC LIMIT 10
+
 7542	590820
 8926	566640
 2335	541200
@@ -237,6 +267,8 @@ In the `loan` table, retrieve the number of loans issued for each day, before (e
 Expected result:
 
 ```
+SELECT date, COUNT(date)  FROM loan WHERE date < 930907 GROUP BY date ORDER BY date DESC LIMIT 10
+
 930906	1
 930803	1
 930728	1
@@ -251,6 +283,8 @@ In the `loan` table, for each day in December 1997, count the number of loans is
 Expected result:
 
 ```shell
+SELECT date, duration, COUNT(*) FROM loan WHERE date >= 971131 AND date <= 980101 GROUP BY date, duration
+
 971206	24	1
 971206	36	1
 971208	12	3
@@ -274,6 +308,8 @@ In the `trans` table, for `account_id` 396, sum the amount of transactions for e
 Expected result:
 
 ```shell
+SELECT account_id, type, SUM(amount) FROM trans WHERE account_id == 396 GROUP BY type
+
 396	PRIJEM	1028138.6999740601
 396	VYDAJ	1485814.400024414
 ```
