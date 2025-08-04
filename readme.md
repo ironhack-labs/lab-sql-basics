@@ -2,7 +2,7 @@
 
 # Lab | SQL basics (selection and aggregation)
 
-## Introduction
+## IntroductionTest2
 
 In this lab, you will be using the `files_for_lab/lab1_bank.sqlite` database. Load it into DB browser for sqlite, and there you will find a `bank` database which we will use for the following exercise.
 
