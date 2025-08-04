@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/Nekky Lung/Desktop/IronHack AI Course/2_FT_July2025/week 3/day1/lab-sql-basics/files_for_lab/my SQL code.db" readonly="0" foreign_keys="0" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure pragmas browser query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2574"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="trans" custom_title="0" dock_id="2" table="4,5:maintrans"/><dock_state state="000000ff00000000fd00000001000000020000043c000002affc0100000002fb000000160064006f0063006b00420072006f007700730065003101000000000000043c0000000000000000fb000000160064006f0063006b00420072006f007700730065003201000000000000043c0000014900ffffff000002930000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="account" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="78"/><column index="2" value="73"/><column index="3" value="148"/><column index="4" value="54"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="card" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="56"/><column index="2" value="55"/><column index="3" value="62"/><column index="4" value="124"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="client" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="64"/><column index="2" value="94"/><column index="3" value="73"/></column_widths><filter_values><column index="2" value="72"/></filter_values><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="disp" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="55"/><column index="2" value="64"/><column index="3" value="78"/><column index="4" value="78"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="district" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="27"/><column index="2" value="156"/><column index="3" value="124"/><column index="4" value="62"/><column index="5" value="53"/><column index="6" value="27"/><column index="7" value="27"/><column index="8" value="27"/><column index="9" value="27"/><column index="10" value="46"/><column index="11" value="46"/><column index="12" value="39"/><column index="13" value="39"/><column index="14" value="35"/><column index="15" value="46"/><column index="16" value="46"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="loan" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort><column index="2" mode="0"/></sort><column_widths><column index="1" value="56"/><column index="2" value="78"/><column index="3" value="54"/><column index="4" value="77"/><column index="5" value="61"/><column index="6" value="105"/><column index="7" value="45"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="order" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort><column index="0" mode="0"/></sort><column_widths><column index="1" value="90"/><column index="2" value="78"/><column index="3" value="91"/><column index="4" value="93"/><column index="5" value="62"/><column index="6" value="100"/></column_widths><filter_values><column index="3" value="30067122"/></filter_values><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="trans" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="62"/><column index="2" value="78"/><column index="3" value="54"/><column index="4" value="54"/><column index="5" value="117"/><column index="6" value="62"/><column index="7" value="70"/><column index="8" value="70"/><column index="9" value="39"/><column index="10" value="70"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">--Q1:Get the `id` values of the first 5 clients from `district_id` with a value equals to 1.
+SELECT client_id FROM client WHERE district_id == 1 LIMIT 5;
+
+--Q2:In the `client` table, get an `id` value of the last client where the `district_id` equals to 72.
+SELECT client_id FROM client WHERE district_id == 72 ORDER BY client_id DESC Limit 1;
+
+--Query 3: Get the 3 lowest amounts in the loan table.
+SELECT amount FROM loan order by amount ASC limit 3;
+
+--Query 4: What are the possible values for status, ordered alphabetically in ascending order in the loan table?
+SELECT status FROM loan group by status order by status ASC ;
+
+--Query 5:What is the loan_id of the highest payment received in the loan table?
+SELECT loan_id FROM loan WHERE payments = (SELECT MAX(payments) FROM loan);
+
+--Query 6:What is the loan amount of the lowest 5 account_ids in the loan table? Show the account_id and the corresponding amount
+SELECT account_id, amount FROM loan Order by account_id ASC LIMIT 5;
+
+--Query 7: What are the &quot;5&quot; account_ids with the lowest loan amount that have a loan duration of 60 in the loan table?
+SELECT account_id FROM loan where duration == 60 order by amount ASC limit 5;
+
+--Query 8: What are the unique values of k_symbol in the order table?
+SELECT k_symbol FROM `order` group by k_symbol;
+
+--Query 9:In the order table, what are the order_ids of the client with the account_id 34?
+SELECT order_id FROM `order` where account_id == 34;
+
+--Query 10: In the order t'able, which account_ids were responsible for orders between order_id 29540 and order_id 29560 (inclusive)?
+SELECT DISTINCT(account_id) FROM `order` where order_id &gt;= 29540 and order_id &lt;= 29560;
+
+--Query 11:In the order table, what are the individual amounts that were sent to (account_to) id 30067122?
+SELECT amount FROM `order` where account_to == 30067122;
+
+--Query 12: In the trans table, show the trans_id, date, type and amount of the 10 first transactions from account_id 793 in chronological order, from newest to oldest.
+SELECT trans_id, date, type , amount FROM trans where account_id == 793 order by date DESC limit 10;
+
+--Query 13: In the client table, of all districts with a district_id lower than 10, how many clients are from each district_id? Show the results sorted by the district_id in ascending order.
+SELECT district_id, count(client_id) from client where district_id &lt; 10 group by district_id order by district_id ASC;
+
+
+--Query 14: In the card table, how many cards exist for each type? Rank the result starting with the most frequent type.
+SELECT type , count(card_id) from card group by type order by count(card_id) DESC;
+
+--Query 15: Using the loan table, print the top 10 account_ids based on the sum of all of their loan amounts.
+SELECT account_id, sum(amount) from loan group by account_id order by sum(amount) DESC limit 10;
+
+--Query 16: In the loan table, retrieve the number of loans issued for each day, before (excl) 930907, ordered by date in descending order.
+SELECT date, count(loan_id) from loan where date &lt; 930907 group by date order by date DESC;
+
+--Query 17: In the loan table, for each day in December 1997, count the number of loans issued for each unique loan duration, ordered by date and duration, both in ascending order. You can ignore days without any loans in your output.
+SELECT date, duration , count(loan_id) from loan where date like &quot;%9712%&quot; group by date, duration order by date ASC, duration ASC;
+
+
+--Query 18:In the trans table, for account_id 396, sum the amount of transactions for each type (VYDAJ = Outgoing, PRIJEM = Incoming). Your output should have the account_id, the type and the sum of amount, named as total_amount. Sort alphabetically by type.
+SELECT account_id , type, sum(amount) as total_amount from trans where account_id = 396 GROUP by type  order by type ASC
+
+
+
+
+
+
+
+
+
+
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>
