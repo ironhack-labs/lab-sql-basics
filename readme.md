@@ -234,7 +234,7 @@ Expected result:
 
 In the `loan` table, retrieve the number of loans issued for each day, before (excl) 930907, ordered by date in descending order.
 
-Expected result:
+Expected result:Q
 
 ```
 930906	1
