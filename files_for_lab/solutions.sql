@@ -36,7 +36,7 @@ SELECT CAST(amount AS INT) AS amount FROM `order` WHERE account_to == 30067122;
 SELECT trans_id, `date`, type, amount FROM trans WHERE account_id == 793 ORDER BY `date` DESC LIMIT 10;
 
 -- In the client table, of all districts with a district_id lower than 10, how many clients are from each district_id? Show the results sorted by the district_id in ascending order.
-SELECT COUNT(district_id) FROM client WHERE district_id < 10 GROUP BY district_id ORDER BY district_id ASC;
+SELECT disctrict_id, COUNT(district_id) FROM client WHERE district_id < 10 GROUP BY district_id ORDER BY district_id ASC;
 
 -- In the card table, how many cards exist for each type? Rank the result starting with the most frequent type.
 SELECT type, COUNT(card_id) FROM card GROUP BY type ORDER BY COUNT(card_id) DESC;
@@ -48,7 +48,7 @@ SELECT account_id, SUM(amount) FROM loan GROUP BY account_id ORDER BY SUM(amount
 SELECT `date`, COUNT(loan_id) FROM loan WHERE `date` < 930907 GROUP BY `date` ORDER BY `date` DESC;
 
 -- In the loan table, for each day in December 1997, count the number of loans issued for each unique loan duration, ordered by date and duration, both in ascending order. You can ignore days without any loans in your output.
-SELECT `date`, duration, COUNT(loan_id) FROM loan WHERE `date` < 980101 AND `date` >= 971201 GROUP BY duration, `date` ORDER BY `date`, duration ASC;
+SELECT `date`, duration, COUNT(loan_id) FROM loan WHERE `date` < 980101 AND `date` >= 971201 GROUP BY `date`, duration ORDER BY `date`, duration ASC;
 
 -- In the trans table, for account_id 396, sum the amount of transactions for each type (VYDAJ = Outgoing, PRIJEM = Incoming). 
 -- Your output should have the account_id, the type and the sum of amount, named as total_amount. Sort alphabetically by type.
