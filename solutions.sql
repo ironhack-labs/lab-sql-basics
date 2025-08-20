@@ -8,17 +8,19 @@ LIMIT 5;
 SELECT client_id AS id
 FROM client
 WHERE district_id = 72
+ORDER BY client_id DESC
 LIMIT 1;
 
 --3
 SELECT amount
 FROM loan
+ORDER BY amount ASC
 LIMIT 3;
 
 --4
 SELECT DISTINCT status
 FROM loan
-ORDER BY status ASC;
+ORDER BY payments DESC LIMIT 1;
 
 --5
 SELECT loan_id
@@ -35,7 +37,8 @@ LIMIT 5;
 SELECT account_id
 FROM loan
 WHERE duration = 60
-  AND amount = (SELECT MIN(amount) FROM loan WHERE duration = 60);
+  AND amount = (SELECT MIN(amount) FROM loan WHERE duration = 60)
+ORDER BY amount ASC LIMIT 5;
 
   --8
 SELECT DISTINCT k_symbol
