@@ -10,13 +10,13 @@ Open the `lab1_bank.sqlite` database in DB Browser for SQLite by selecting **Ope
 
 
 Here, we will practice selecting and projecting data. You can finish all questions with only those clauses:
-
 - `SELECT`
 - `SELECT DISTINCT`
 - `FROM`
 - `WHERE`
 - `ORDER BY`
 - `LIMIT`
+
 
 You can save your solutions in a file `solutions.sql`.
 
