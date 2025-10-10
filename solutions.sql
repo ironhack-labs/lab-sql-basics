@@ -22,14 +22,14 @@ SELECT amount FROM `order` WHERE account_to == 30067122;
 
 SELECT trans_id, date, type, amount FROM trans WHERE account_id = 793 ORDER BY date DESC LIMIT 10;
 
-SELECT COUNT(*) FROM client WHERE district_id < 10 GROUP BY district_id;
+SELECT district_id, COUNT(*) FROM client WHERE district_id < 10 GROUP BY district_id ORDER BY district_id;
 
 SELECT type, COUNT(*) FROM card GROUP BY type ORDER BY COUNT(*) DESC;
 
-SELECT account_id, amount FROM loan GROUP BY account_id ORDER BY amount DESC LIMIT 10; 
-
+ SELECT account_id, SUM(amount) FROM loan GROUP BY account_id ORDER BY amount DESC LIMIT 10; 
+ 
 SELECT date, COUNT(*) FROM loan WHERE date < 930907 GROUP BY date ORDER BY date DESC;
-
+ 
 SELECT date, duration, COUNT(*) FROM loan WHERE date LIKE "9712%" GROUP BY date, duration ORDER BY date, duration;
-
-SELECt account_id, type, SUM(amount) FROM trans WHERE account_id == 396 GROUP BY type ORDER BY type;
+ 
+SELECT account_id, type, SUM(amount) AS total_amount FROM trans WHERE account_id == 396 GROUP BY type ORDER BY type;
