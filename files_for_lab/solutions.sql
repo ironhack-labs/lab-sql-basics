@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="lab1_bank.sqlite" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="pragmas query browser structure" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2280"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="0" parent="0"/><expanded_item id="2" parent="0"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="account" custom_title="0" dock_id="1" table="4,7:mainaccount"/><table title="card" custom_title="0" dock_id="2" table="4,4:maincard"/><dock_state state="000000ff00000000fd0000000100000002000003440000043dfc0100000001fc00000000000003440000012300fffffffa000000010100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000012300fffffffb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000011800ffffff0000027e0000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="account" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="81"/><column index="2" value="75"/><column index="3" value="125"/><column index="4" value="50"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="card" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="58"/><column index="2" value="56"/><column index="3" value="43"/><column index="4" value="96"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="order" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="63"/><column index="2" value="81"/><column index="3" value="61"/><column index="4" value="82"/><column index="5" value="57"/><column index="6" value="71"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">-- Query 1
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="lab1_bank.sqlite" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="pragmas query browser structure" current="1"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2280"/><column_width id="4" width="0"/><expanded_item id="0" parent="0"/><expanded_item id="2" parent="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><table title="card" custom_title="0" dock_id="2" table="4,4:maincard"/><table title="account" custom_title="0" dock_id="1" table="4,7:mainaccount"/><dock_state state="000000ff00000000fd0000000100000002000003440000043dfc0100000001fc00000000000003440000015c00fffffffa000000010100000002fb000000160064006f0063006b00420072006f00770073006500310100000000ffffffff0000015c00fffffffb000000160064006f0063006b00420072006f00770073006500320100000000ffffffff0000015c00ffffff000003440000000000000004000000040000000800000008fc00000000"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="account" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="81"/><column index="2" value="75"/><column index="3" value="125"/><column index="4" value="50"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="card" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="58"/><column index="2" value="56"/><column index="3" value="43"/><column index="4" value="96"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="order" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_" freeze_columns="0"><sort/><column_widths><column index="1" value="63"/><column index="2" value="81"/><column index="3" value="61"/><column index="4" value="82"/><column index="5" value="57"/><column index="6" value="71"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1*">-- Query 1
 -- Get the id values of the first 5 clients from district_id with a value equals to 1.
 SELECT client_id
 FROM client
@@ -41,10 +41,11 @@ LIMIT 1;
 --Query 6
 -- What is the loan amount of the lowest 5 account_ids in the loan table? Show the account_id and the corresponding amount
 
-SELECT amount
+SELECT account_id, amount
 FROM loan
 ORDER BY account_id ASC
 LIMIT 5;
+
 
 --Query 7
 -- What are the account_ids with the lowest loan amount that have a loan duration of 60 in the loan table?
@@ -75,7 +76,7 @@ WHERE account_id = 34;
 
 SELECT DISTINCT account_id
 FROM &quot;order&quot;
-WHERE order_id &gt; 29540 AND order_id &lt;= 29560;
+WHERE order_id &gt;= 29540 AND order_id &lt;= 29560;
 
 --Query 11
 --In the order table, what are the individual amounts that were sent to (account_to) id 30067122?
@@ -97,7 +98,7 @@ LIMIT 10;
 -- In the client table, of all districts with a district_id lower than 10, how many clients are from each district_id? 
 --Show the results sorted by the district_id in ascending order.
 
-SELECT COUNT (DISTINCT client_id)
+SELECT district_id, COUNT (DISTINCT client_id)
 FROM client
 WHERE district_id &lt; 10
 GROUP BY district_id
@@ -106,7 +107,9 @@ ORDER BY district_id ASC;
 --Query 14
 --In the card table, how many cards exist for each type? Rank the result starting with the most frequent type.
 
-SELECT type, COUNT (card_id)
+SELECT 
+	type AS &quot;Card type&quot;, 
+	COUNT (card_id) AS &quot;Count&quot;
 FROM card
 GROUP BY type
 ORDER BY COUNT(card_id) DESC;
@@ -144,6 +147,13 @@ WHERE issue_date &gt;= '1997-12-01'
 GROUP BY issue_date, duration
 ORDER BY issue_date ASC, duration ASC;
 
+SELECT date, duration, COUNT(loan_id)
+ FROM loan 
+ WHERE date 
+ LIKE '9712%' 
+ GROUP BY date, duration 
+ ORDER BY date ASC, duration ASC;
+
 
 
 -- Query 18
@@ -155,5 +165,6 @@ FROM trans
 WHERE account_id = 396
 GROUP BY type
 ORDER BY type ASC;
+
 
 </sql><current_tab id="0"/></tab_sql></sqlb_project>
