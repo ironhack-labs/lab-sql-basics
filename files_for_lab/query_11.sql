@@ -1,0 +1,1 @@
+select amount from `order` where account_to=30067122

@@ -1,0 +1,1 @@
+select district_id, COUNT(*) from client where district_id < 10 group by district_id order by district_id asc 
