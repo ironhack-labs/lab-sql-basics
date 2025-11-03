@@ -35,8 +35,7 @@ select amount from `order` where account_to == 30067122 -- 5123.0
 select trans_id, `date`, type, amount from trans where account_id = 793 order by `date` desc limit 10
 
 -- Query 13: In the client table, of all districts with a district_id lower than 10, how many clients are from each district_id? Show the results sorted by the district_id in ascending order.
--- select district_id, count(client_id) from client where district_id  <10 group by district_id order by district_id asc
-select type,count(card_id) as card_count from card group by type order by card_count desc
+select district_id, count(client_id) from client where district_id  <10 group by district_id order by district_id asc
 
 -- Query 15: Using the loan table, print the top 10 account_ids based on the sum of all of their loan amounts.
 select account_id, sum(amount) from loan group  by account_id  order by sum(amount) desc limit 10
