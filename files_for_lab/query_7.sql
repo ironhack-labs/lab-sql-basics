@@ -1,0 +1,1 @@
+select account_id from loan where duration=60 order by amount asc limit 5

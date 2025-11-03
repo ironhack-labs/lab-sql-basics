@@ -1,0 +1,1 @@
+select type, Count(*) as total from card group by type order by total desc

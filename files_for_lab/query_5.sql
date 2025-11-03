@@ -1,0 +1,1 @@
+SELECT loan_id FROM loan order by payments desc limit 1

@@ -1,0 +1,1 @@
+select account_id, amount from loan order by account_id asc limit 5

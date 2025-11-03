@@ -1,0 +1,1 @@
+select DISTINCT k_symbol from `order`

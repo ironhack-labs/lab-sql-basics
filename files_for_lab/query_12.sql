@@ -1,0 +1,1 @@
+select trans_id, `date`, type, amount from trans where account_id=793 order by `date` desc

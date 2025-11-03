@@ -1,0 +1,1 @@
+select account_id, amount as am from loan GROUP by amount order by amount desc limit 10
