@@ -1,6 +1,6 @@
 -- Query 1
 -- Get the id values of the first 5 clients from district_id with a value equals to 1.
-SELECT client_id FROM client ORDER BY district_id LIMIT 5;
+SELECT client_id FROM client where district_id == 1 LIMIT 5;
 
 -- Query 2
 -- In the client table, get an id value of the last client where the district_id equals to 72.
@@ -24,7 +24,7 @@ SELECT account_id, amount FROM loan order by account_id ASC limit 5;
 
 -- Query 7
 -- What are the account_ids with the lowest loan amount that have a loan duration of 60 in the loan table?
-SELECT account_id FROM loan WHERE duration == 60 order by amount ASC;
+SELECT account_id FROM loan WHERE duration == 60 order by amount ASC limit 5;
 
 -- Query 8
 -- What are the unique values of k_symbol in the order table?
@@ -55,7 +55,7 @@ SELECT district_id, COUNT(*) FROM [client] where district_id < 10 group by distr
 -- Query 14
 -- In the client table, of all districts with a district_id lower than 10, how many clients are from each district_id?
 -- Show the results sorted by the district_id in ascending order.
-SELECT type, COUNT(*) FROM [card] group by type order by count(*) DESC;
+SELECT type, COUNT(type) as type_count FROM [card] group by type order by type_count DESC;
 
 -- Query 15
 -- Using the loan table, print the top 10 account_ids based on the sum of all of their loan amounts.
