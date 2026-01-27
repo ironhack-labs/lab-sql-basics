@@ -99,10 +99,11 @@ SELECT date, duration , COUNT(*)
 FROM loan
 WHERE date BETWEEN 971201 AND 971231
 GROUP BY duration
-ORDER BY date ; --AND duration
+ORDER BY date AND duration;
 
 -- Q18 --
 SELECT account_id, type, SUM(amount) AS total_amount
 FROM trans
 WHERE account_id == 396
+
 GROUP BY type;
