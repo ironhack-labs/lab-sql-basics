@@ -23,9 +23,6 @@ FROM loan
 ORDER BY status;
 
 -- Q5 --
--- SELECT loan_id, MAX(payments) FROM loan;
-/*SELECT loan_id
-FROM(SELECT loan_id, MAX(payments) FROM loan);*/
 SELECT loan_id
 FROM loan
 Order BY payments DESC
@@ -109,9 +106,3 @@ SELECT account_id, type, SUM(amount) AS total_amount
 FROM trans
 WHERE account_id == 396
 GROUP BY type;
-
-
-SELECT DISTINCT date, duration
-FROM loan
-WHERE date BETWEEN 971201 AND 971231
-ORDER BY date AND duration
