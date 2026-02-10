@@ -1,0 +1,4 @@
+SELECT type, COUNT(*) 
+FROM card
+GROUP BY type
+ORDER BY COUNT(*) DESC;

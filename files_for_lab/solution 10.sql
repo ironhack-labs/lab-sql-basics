@@ -1,0 +1,4 @@
+SELECT DISTINCT account_id
+FROM `order`
+WHERE order_id BETWEEN 29540 AND 29560
+ORDER BY account_id ASC;
