@@ -1,0 +1,5 @@
+SELECT date, COUNT(*) 
+FROM loan
+WHERE date < 930907
+GROUP BY date
+ORDER BY date DESC;
