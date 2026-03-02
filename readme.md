@@ -100,7 +100,7 @@ Expected result:
 
 ### Query 7
 
-What are the `account_id`s with the lowest loan `amount` that have a loan `duration` of 60 in the `loan` table?
+What are the 5 `account_id`s with the lowest loan `amount` that have a loan `duration` of 60 in the `loan` table?
 
 Expected result:
 
