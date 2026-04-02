@@ -138,3 +138,12 @@ FROM loan
 WHERE date BETWEEN 971201 AND 971231
 GROUP by date, duration
 order by date ASC, duration ASC;
+
+-- -------------------------------------
+
+-- Query 18: Sum transaction amounts by type for account_id = 396 (ordered by type ASC)
+SELECT account_id, type,  sum(amount) 
+FROM trans
+where account_id = 396
+GROUP by account_id, type
+order by type ASC
