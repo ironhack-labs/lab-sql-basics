@@ -14,5 +14,5 @@ SELECT DISTINCT district_id, COUNT(*) FROM client WHERE district_id < 10 GROUP B
 SELECT type, COUNT(*) AS n_times FROM card GROUP BY type ORDER BY n_times DESC;
 SELECT account_id, SUM(amount) AS sum_amounts FROM loan GROUP BY account_id ORDER BY sum_amounts DESC LIMIT 10;
 SELECT `date`, COUNT(*) AS n_loans FROM loan WHERE `date` < 930907 GROUP BY `date` ORDER BY `date` DESC;
-SELECT `date`, duration, count(*) FROM loan WHERE `date` LIKE '9712%' GROUP BY `date`, duration ORDER BY `date` AND duration ASC;
+SELECT `date`, duration, count(*) FROM loan WHERE `date` LIKE '9712%' GROUP BY `date`, duration ORDER BY `date`, duration ASC;
 SELECT account_id, type, SUM(amount) AS total_amount FROM trans WHERE account_id = 396 GROUP BY type = 'VYDAJ', type = 'PRIJEM' ORDER BY type ASC;
