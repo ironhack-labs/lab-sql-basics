@@ -8,7 +8,6 @@ In this lab, you will be using the `files_for_lab/lab1_bank.sqlite` database. Lo
 
 Open the `lab1_bank.sqlite` database in DB Browser for SQLite by selecting **Open Database** and choosing the `lab1_bank.sqlite` file. Once it's open, you can start working on your lab in the **Execute SQL** section. Don't forget to save your code regularly.
 
-
 Here, we will practice selecting and projecting data. You can finish all questions with only those clauses:
 
 - `SELECT`
